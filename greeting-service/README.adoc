@@ -34,10 +34,6 @@ ifndef::java_version[:java_version: 1.6]
 ** link:/guides/gs/sts[Spring Tool Suite (STS)]
 ** link:/guides/gs/intellij-idea/[IntelliJ IDEA]
 
-[[reveal-gradle]]
-[.reveal-gradle]
-== Build with Gradle
-
 [[scratch]]
 [.use-gradle]
 == Build with Gradle
@@ -57,10 +53,6 @@ include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/ini
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
 
-[[reveal-maven]]
-[.reveal-maven]
-== Build with Maven
-
 [[use-maven]]
 [.use-maven]
 == Build with Maven
@@ -76,10 +68,6 @@ include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/ini
 ----
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
-
-[[reveal-sts]]
-[.reveal-sts]
-== Build with your IDE
 
 [[use-sts]]
 [.use-sts]
@@ -145,6 +133,52 @@ java -jar target/{project_id}-0.1.0.jar
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
+== Add production-grade services
+Spring Boot provides several out of the box with its http://docs.spring.io/spring-boot/docs/{spring_boot_version}/reference/htmlsingle/#production-ready[actuator module], such as health, audits, beans, and more.
+
+You will see a set of RESTful end points added to the application. These are management services provided by Spring Boot.
+
+....
+2014-06-03 13:23:28.119  ... : Mapped "{[/error],methods=[],params=[],headers=[],consumes...
+2014-06-03 13:23:28.119  ... : Mapped "{[/error],methods=[],params=[],headers=[],consumes...
+2014-06-03 13:23:28.136  ... : Mapped URL path [/**] onto handler of type [class org.spri...
+2014-06-03 13:23:28.136  ... : Mapped URL path [/webjars/**] onto handler of type [class ...
+2014-06-03 13:23:28.440  ... : Mapped "{[/info],methods=[GET],params=[],headers=[],consum...
+2014-06-03 13:23:28.441  ... : Mapped "{[/autoconfig],methods=[GET],params=[],headers=[],...
+2014-06-03 13:23:28.441  ... : Mapped "{[/mappings],methods=[GET],params=[],headers=[],co...
+2014-06-03 13:23:28.442  ... : Mapped "{[/trace],methods=[GET],params=[],headers=[],consu...
+2014-06-03 13:23:28.442  ... : Mapped "{[/env/{name:.*}],methods=[GET],params=[],headers=...
+2014-06-03 13:23:28.442  ... : Mapped "{[/env],methods=[GET],params=[],headers=[],consume...
+2014-06-03 13:23:28.443  ... : Mapped "{[/configprops],methods=[GET],params=[],headers=[]...
+2014-06-03 13:23:28.443  ... : Mapped "{[/metrics/{name:.*}],methods=[GET],params=[],head...
+2014-06-03 13:23:28.443  ... : Mapped "{[/metrics],methods=[GET],params=[],headers=[],con...
+2014-06-03 13:23:28.444  ... : Mapped "{[/health],methods=[GET],params=[],headers=[],cons...
+2014-06-03 13:23:28.444  ... : Mapped "{[/dump],methods=[GET],params=[],headers=[],consum...
+2014-06-03 13:23:28.445  ... : Mapped "{[/beans],methods=[GET],params=[],headers=[],consu...
+....
+
+They include: errors, http://localhost:8080/env[environment], http://localhost:8080/health[health], http://localhost:8080/beans[beans], http://localhost:8080/info[info], http://localhost:8080/metrics[metrics], http://localhost:8080/trace[trace], http://localhost:8080/configprops[configprops], and http://localhost:8080/dump[dump].
+
+NOTE: There is also a `/shutdown` endpoint, but it's only visible by default via JMX. To http://docs.spring.io/spring-boot/docs/{spring_boot_version}/reference/htmlsingle/#production-ready-customizing-endpoints[enable it as an HTTP endpoint], add
+`endpoints.shutdown.enabled=true` to your `application.properties` file.
+
+It's easy to check the health of the app.
+
+----
+$ curl localhost:8080/health
+{"status":"UP","diskSpace":{"status":"UP","total":397635555328,"free":328389529600,"threshold":10485760}}}
+----
+
+You can try to invoke shutdown through curl.
+
+----
+$ curl -X POST localhost:8080/shutdown
+{"timestamp":1401820343710,"error":"Method Not Allowed","status":405,"message":"Request method 'POST' not supported"}
+----
+
+Because we didn't enable it, the request is blocked by the virtue of not existing.
+
+For more details about each of these REST points and how you can tune their settings with an `application.properties` file, you can read detailed http://docs.spring.io/spring-boot/docs/{spring_boot_version}/reference/htmlsingle/#production-ready-endpoints[docs about the endpoints].
 
 == Test the application
 
