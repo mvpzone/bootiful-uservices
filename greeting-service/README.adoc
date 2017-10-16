@@ -99,6 +99,8 @@ Create a new controller for your Spring application:
 include::src/main/java/hello/GreetingController.java[]
 ----
 
+The class is flagged as a `@RestController`, meaning it's ready for use by Spring MVC to handle web requests. `@RequestMapping` maps `/` to the `index()` method. When invoked from a browser or using curl on the command line, the method returns pure text. That's because `@RestController` combines `@Controller` and `@ResponseBody`, two annotations that results in web requests returning data rather than a view.
+
 NOTE: The above example does not specify `GET` vs. `PUT`, `POST`, and so forth, because `@RequestMapping` maps all HTTP operations by default. Use `@RequestMapping(method=GET)` to narrow this mapping.
 
 
@@ -148,6 +150,18 @@ Logging output is displayed. The service should be up and running within a few s
 
 Now that the application is running, you can test it.
 
+Check out the service.
+
+....
+$ curl localhost:8080
+Greetings from Spring Boot!!!
+....
+
+You can also hit the greeting endpoint
+....
+$ curl localhost:8080/greeting
+Hello World
+....
 
 == Summary
 
