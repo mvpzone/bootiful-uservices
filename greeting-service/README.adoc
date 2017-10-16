@@ -199,6 +199,6 @@ Hello World
 
 == Summary
 
-Congratulations! You've just developed a Spring application! 
+Congratulations! You've just developed a Spring Boot application! 
 
 
