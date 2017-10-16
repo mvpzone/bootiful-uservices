@@ -1,0 +1,4 @@
+rootProject.name = 'bootiful-uservices'
+
+include 'greeting-service'
+

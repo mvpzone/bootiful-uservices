@@ -1,0 +1,156 @@
+---
+tags: []
+projects: []
+---
+:spring_version: current
+:spring_boot_version: 1.5.7.RELEASE
+:Controller: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/stereotype/Controller.html
+:DispatcherServlet: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html
+:SpringApplication: http://docs.spring.io/spring-boot/docs/{spring_boot_version}/api/org/springframework/boot/SpringApplication.html
+:ResponseBody: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html
+:toc:
+:icons: font
+:source-highlighter: prettify
+:project_id: draft-gs-template
+This guide walks you through the process of creating a Spring application.
+
+== What you'll build
+
+You'll build a Spring application.
+
+
+== What you'll need
+
+:java_version: 1.8
+:linkattrs:
+
+ifndef::java_version[:java_version: 1.6]
+
+* About 15 minutes
+* A favorite text editor or IDE
+* http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK {java_version}] or later
+* http://www.gradle.org/downloads[Gradle 2.3+] or http://maven.apache.org/download.cgi[Maven 3.0+]
+* You can also import the code straight into your IDE:
+** link:/guides/gs/sts[Spring Tool Suite (STS)]
+** link:/guides/gs/intellij-idea/[IntelliJ IDEA]
+
+[[reveal-gradle]]
+[.reveal-gradle]
+== Build with Gradle
+
+[[scratch]]
+[.use-gradle]
+== Build with Gradle
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_both_builds.adoc[]
+
+`build.gradle`
+// AsciiDoc source formatting doesn't support groovy, so using java instead
+[source,java]
+----
+include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/build.gradle[]
+----
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
+
+[[reveal-maven]]
+[.reveal-maven]
+== Build with Maven
+
+[[use-maven]]
+[.use-maven]
+== Build with Maven
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro_maven.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+
+`pom.xml`
+[source,xml]
+----
+include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/pom.xml[]
+----
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
+
+[[reveal-sts]]
+[.reveal-sts]
+== Build with your IDE
+
+[[use-sts]]
+[.use-sts]
+== Build with your IDE
+
+* Read how to import this guide straight into link:/guides/gs/sts/[Spring Tool Suite].
+* Read how to work with this guide in link:/guides/gs/intellij-idea[IntelliJ IDEA].
+
+[[initial]]
+== Create a resource controller
+
+Create a new controller for your Spring application:
+
+`src/main/java/hello/GreetingController.java`
+[source,java]
+----
+include::src/main/java/hello/GreetingController.java[]
+----
+
+NOTE: The above example does not specify `GET` vs. `PUT`, `POST`, and so forth, because `@RequestMapping` maps all HTTP operations by default. Use `@RequestMapping(method=GET)` to narrow this mapping.
+
+
+== Make the application executable
+
+Although it is possible to package this service as a traditional link:/understanding/WAR[WAR] file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. Along the way, you use Spring's support for embedding the link:/understanding/Tomcat[Tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
+
+
+`src/main/java/hello/Application.java`
+[source,java]
+----
+include::src/main/java/hello/Application.java[]
+----
+
+`@SpringBootApplication` is a convenience annotation that adds all of the following:
+    
+- `@Configuration` tags the class as a source of bean definitions for the application context.
+- `@EnableAutoConfiguration` tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+- Normally you would add `@EnableWebMvc` for a Spring MVC app, but Spring Boot adds it automatically when it sees **spring-webmvc** on the classpath. This flags the application as a web application and activates key behaviors such as setting up a `DispatcherServlet`.
+- `@ComponentScan` tells Spring to look for other components, configurations, and services in the `hello` package, allowing it to find the controllers.
+
+The `main()` method uses Spring Boot's `SpringApplication.run()` method to launch an application. Did you notice that there wasn't a single line of XML? No **web.xml** file either. This web application is 100% pure Java and you didn't have to deal with configuring any plumbing or infrastructure.
+
+
+:linkattrs:
+
+You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+
+If you are using Gradle, you can run the application using `./gradlew bootRun`.  Or you can build the JAR file using `./gradlew build`. Then you can run the JAR file:
+
+[subs="attributes", role="has-copy-button"]
+....
+java -jar build/libs/{project_id}-0.1.0.jar
+....
+
+If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+
+[subs="attributes", role="has-copy-button"]
+....
+java -jar target/{project_id}-0.1.0.jar
+....
+
+Logging output is displayed. The service should be up and running within a few seconds.
+
+
+== Test the application
+
+Now that the application is running, you can test it.
+
+
+== Summary
+
+Congratulations! You've just developed a Spring application! 
+
+
