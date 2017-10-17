@@ -7,17 +7,56 @@
     <artifactId>uservices</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
+    <name>Bootiful MicroServices</name>
+
+    <description>SpringBoot microservices</description>
+    <url>http://www.mvptime.org</url>
+    <developers>
+      <developer>
+      <id>manoharanv</id>
+      <name>Vinesh Prasanna M</name>
+      <email>vinesh@mvpzone.net</email>
+      <organization />
+      <roles>
+	<role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <organization>
+    <name>Pivotal</name>
+    <url>http://www.pivotal.io/</url>
+  </organization>
+  <scm>
+    <connection>scm:git:git@github.com:mvpzone/bootiful-uservices</connection>
+    <developerConnection>scm:git:git@github.com:mvpzone/bootiful-uservices</developerConnection>
+  </scm>
 
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <java.version>1.8</java.version>
+      <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
+      <spring.cloud.version>Dalston.SR4</spring.cloud.version>
     </properties>
 
     <modules>
         <module>greeting-service</module>
         <module>config-service</module>
+        <module>config-client</module>
     </modules>
+
+     <build>
+       <defaultGoal>clean package</defaultGoal>
+       <pluginManagement>
+	 <plugins>
+	   <plugin>
+	     <groupId>org.springframework.boot</groupId>
+	     <artifactId>spring-boot-maven-plugin</artifactId>
+	     <version>${spring.boot.version}</version>
+	   </plugin>
+	 </plugins>
+       </pluginManagement>
+     </build>
 
     <!-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html -->
     <!-- Import dependency management from Spring Boot -->
@@ -26,14 +65,14 @@
 	<dependency>
 	  <groupId>org.springframework.cloud</groupId>
 	  <artifactId>spring-cloud-dependencies</artifactId>
-	  <version>Dalston.SR4</version>
+	  <version>${spring.cloud.version}</version>
 	  <type>pom</type>
 	  <scope>import</scope>
 	</dependency>
 	<dependency>
 	  <groupId>org.springframework.boot</groupId>
 	  <artifactId>spring-boot-dependencies</artifactId>
-	  <version>1.5.7.RELEASE</version>
+	  <version>${spring.boot.version}</version>
 	  <type>pom</type>
 	  <scope>import</scope>
 	</dependency>
