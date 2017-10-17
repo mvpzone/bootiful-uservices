@@ -26,8 +26,8 @@ public class GreetingController {
 		return "Greetings from Spring Boot!!!";
 	}
 
-	@RequestMapping("/greeting")
+	@RequestMapping("/greet")
 	public String greeting() {
-		return "Hello World";
+		return "Hello World!!!";
 	}
 }

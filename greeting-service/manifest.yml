@@ -1,0 +1,12 @@
+---
+applications:
+- name: bootiful-greeting
+  memory: 768M
+  instances: 1
+  random-route: true
+  #buildpack: java_buildpack
+  #timeout: 180 # to give time for the data to import
+  path: ./target/greeting-service-1.0.0.jar
+  env:
+    JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
+
