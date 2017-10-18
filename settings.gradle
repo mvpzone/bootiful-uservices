@@ -3,4 +3,5 @@ rootProject.name = 'bootiful-uservices'
 include 'greeting-service'
 include 'config-service'
 include 'config-client'
+include 'registry-service'
 
