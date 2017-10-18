@@ -4,9 +4,14 @@ applications:
   memory: 768M
   instances: 1
   random-route: true
+  #domains: 
+  #  - apps.cf.cirrus.labs.mvptime.org
+  #  - cfapps.cf.cirrus.labs.mvptime.org
   #buildpack: java_buildpack
   #timeout: 180 # to give time for the data to import
   path: ./target/config-client-1.0.0-SNAPSHOT.jar
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
-
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org
+  services:
+  - config-server

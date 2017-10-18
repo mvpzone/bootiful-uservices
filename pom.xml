@@ -37,6 +37,7 @@
       <java.version>1.8</java.version>
       <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
       <spring.cloud.version>Dalston.SR4</spring.cloud.version>
+      <spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
     </properties>
 
     <modules>
@@ -48,13 +49,23 @@
      <build>
        <defaultGoal>clean package</defaultGoal>
        <pluginManagement>
-	 <plugins>
+	  <plugins>
 	   <plugin>
 	     <groupId>org.springframework.boot</groupId>
 	     <artifactId>spring-boot-maven-plugin</artifactId>
 	     <version>${spring.boot.version}</version>
+	     <configuration>
+	       <layout>ZIP</layout>
+	     </configuration>
+	     <executions>
+	       <execution>
+		 <goals>
+		   <goal>repackage</goal>
+		 </goals>
+	       </execution>
+	     </executions>
 	   </plugin>
-	 </plugins>
+	  </plugins>
        </pluginManagement>
      </build>
 
@@ -62,6 +73,13 @@
     <!-- Import dependency management from Spring Boot -->
     <dependencyManagement>
       <dependencies>
+	<dependency>
+            <groupId>io.pivotal.spring.cloud</groupId>
+            <artifactId>spring-cloud-services-dependencies</artifactId>
+            <version>${spring.cloudservices.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 	<dependency>
 	  <groupId>org.springframework.cloud</groupId>
 	  <artifactId>spring-cloud-dependencies</artifactId>
