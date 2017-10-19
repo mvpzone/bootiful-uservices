@@ -12,6 +12,6 @@ applications:
   path: ./target/config-client-1.0.0-SNAPSHOT.jar
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
-    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org
+    #TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org
   services:
   - config-server
