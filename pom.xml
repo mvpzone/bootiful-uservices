@@ -45,6 +45,7 @@
         <module>config-service</module>
         <module>config-client</module>
 	<module>registry-service</module>
+	<module>registry-client</module>
     </modules>
 
      <build>
