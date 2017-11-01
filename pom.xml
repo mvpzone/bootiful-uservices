@@ -34,25 +34,29 @@
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
       <java.version>1.8</java.version>
       <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
       <spring.cloud.version>Dalston.SR4</spring.cloud.version>
       <spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
+      <git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
     </properties>
 
     <modules>
-        <module>greeting-service</module>
+    	<module>greeting-service</module>
         <module>config-service</module>
         <module>config-client</module>
-	<module>registry-service</module>
-	<module>registry-client</module>
+		<module>registry-service</module>
+		<module>registry-client</module>
+		<module>bootiful-quotes</module>
     </modules>
 
      <build>
        <defaultGoal>clean package</defaultGoal>
        <pluginManagement>
-	  <plugins>
-	   <plugin>
+	  	<plugins>
+	   	<plugin>
 	     <groupId>org.springframework.boot</groupId>
 	     <artifactId>spring-boot-maven-plugin</artifactId>
 	     <version>${spring.boot.version}</version>
@@ -66,9 +70,52 @@
 		 </goals>
 	       </execution>
 	     </executions>
-	   </plugin>
-	  </plugins>
-       </pluginManagement>
+     	</plugin>
+     	<plugin>
+            <groupId>pl.project13.maven</groupId>
+            <artifactId>git-commit-id-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>revision</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                <verbose>true</verbose>
+    			<skipPoms>false</skipPoms>
+    			<runOnlyOnce>true</runOnlyOnce>
+    			<generateGitPropertiesFile>true</generateGitPropertiesFile>
+            </configuration>
+        </plugin>
+        <plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+   	 		<artifactId>maven-resources-plugin</artifactId>
+    		<configuration>
+        		<delimiters>
+            		<delimiter>@</delimiter>
+        		</delimiters>
+        	<useDefaultDelimiters>false</useDefaultDelimiters>
+    		</configuration>
+		</plugin>
+	  	</plugins>
+  		</pluginManagement>
+  		<plugins>
+  			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git.commitid.plugin.version}</version>
+			</plugin>
+  		</plugins>
+  		  		
+  		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
      </build>
 
     <!-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html -->

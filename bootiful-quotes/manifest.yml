@@ -1,0 +1,18 @@
+---
+applications:
+- name: bootiful-quotes
+  memory: 768M
+  instances: 1
+  random-route: true
+  #domains: 
+  #  - apps.cf.cirrus.labs.mvptime.org
+  #  - cfapps.cf.cirrus.labs.mvptime.org
+  #buildpack: java_buildpack
+  #timeout: 180 # to give time for the data to import
+  path: ./target/bootiful-quotes-1.0.0-SNAPSHOT.jar
+  env:
+    JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
+  services:
+  - registry-server
+  - config-server

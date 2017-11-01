@@ -35,7 +35,7 @@ public class ConfigClientControllerTest {
 	private ConfigurableEnvironment environment;
 
 	@Autowired
-	private GreetingRestController controller;
+	private GreetingController controller;
 
 	@Autowired
 	private ContextRefresher refresher;

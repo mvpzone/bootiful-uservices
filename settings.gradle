@@ -5,4 +5,5 @@ include 'config-service'
 include 'config-client'
 include 'registry-service'
 include 'registry-client'
+include 'bootiful-quotes'
 

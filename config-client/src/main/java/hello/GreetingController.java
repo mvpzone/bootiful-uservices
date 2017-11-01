@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
 @RestController
-class GreetingRestController {
+class GreetingController {
 
 	@Value("${message:Hello World!!!}")
 	private String message;
