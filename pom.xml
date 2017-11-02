@@ -45,6 +45,7 @@
 
       <git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
       <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+      <maven.surefire.version>2.18.1</maven.surefire.version>
     </properties>
 
     <modules>
@@ -54,6 +55,7 @@
 		<module>registry-service</module>
 		<module>registry-client</module>
 		<module>bootiful-quotes</module>
+		<module>hystrix-service</module>
 		<module>bootiful-cities</module>
 		<module>bootiful-circuitbreaker</module>
     </modules>
@@ -99,6 +101,10 @@
 	<plugin>
 	  <artifactId>maven-jar-plugin</artifactId>
 	  <version>${maven.jar.plugin.version}</version>
+	</plugin>
+	<plugin>
+	  <artifactId>maven-surefire-plugin</artifactId>
+	  <version>${maven.surefire.version}</version>
 	</plugin>
         <plugin>
     		<groupId>org.apache.maven.plugins</groupId>

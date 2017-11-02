@@ -27,7 +27,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RegistryClientApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class RegistryClientApplicationTests {
+public class RegistryClientApplicationTest {
 
 	static ConfigurableApplicationContext eurekaServer;
 

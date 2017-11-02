@@ -6,6 +6,7 @@ include 'config-client'
 include 'registry-service'
 include 'registry-client'
 include 'bootiful-quotes'
+include 'hystrix-service'
 include 'bootiful-cities'
 include 'bootiful-circuitbreaker'
 
