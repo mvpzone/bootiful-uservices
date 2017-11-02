@@ -7,4 +7,5 @@ include 'registry-service'
 include 'registry-client'
 include 'bootiful-quotes'
 include 'bootiful-cities'
+include 'bootiful-circuitbreaker'
 
