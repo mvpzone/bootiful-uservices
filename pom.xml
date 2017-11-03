@@ -59,6 +59,7 @@
 		<module>bootiful-cities</module>
 		<module>bootiful-circuitbreaker</module>
 		<module>zuul-service</module>
+		<module>bootiful-ribbon</module>
 	</modules>
 
 	<build>

@@ -21,6 +21,11 @@ public class QuoteController {
 	private QuoteRepository repository;
 	private final static Random RANDOMIZER = new Random();
 
+	@RequestMapping(value = "/")
+	public String home() {
+		return "Bootiful Quotes!!!";
+	}
+
 	@RequestMapping(value = "/api/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Quote> getOne(@PathVariable Long id) {
 		if (Objects.isNull(id)) {
