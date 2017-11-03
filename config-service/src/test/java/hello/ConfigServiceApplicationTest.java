@@ -29,12 +29,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(properties = { "spring.profiles.active=native" })
 public class ConfigServiceApplicationTest {
 
-    @Autowired
-    private EnvironmentController controller;
+	@Autowired
+	private EnvironmentController controller;
 
-    @Test
-    public void contextLoads() {
-        assertThat(controller).isNotNull();
-    }
+	@Test
+	public void contextLoads() {
+		assertThat(controller).isNotNull();
+	}
 
 }
