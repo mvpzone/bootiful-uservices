@@ -51,9 +51,9 @@
 	<modules>
 		<module>greeting-service</module>
 		<module>config-service</module>
-		<module>config-client</module>
+		<module>bootiful-config</module>
 		<module>registry-service</module>
-		<module>registry-client</module>
+		<module>bootiful-registry</module>
 		<module>bootiful-quotes</module>
 		<module>hystrix-service</module>
 		<module>bootiful-cities</module>

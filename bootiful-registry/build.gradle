@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'registry-client'
+	baseName = 'bootiful-registry'
 	version = '1.0.0-SNAPSHOT'
 }
 sourceCompatibility = 1.8
