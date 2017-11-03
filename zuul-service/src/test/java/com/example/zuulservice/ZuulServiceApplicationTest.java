@@ -1,4 +1,4 @@
-package com.example;
+package com.example.zuulservice;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -14,7 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UIApplicationTests {
+public class ZuulServiceApplicationTest {
+
+	@Test
+	public void contextLoads() {
+	}
 
 	@LocalServerPort
 	private int port;
@@ -23,9 +27,9 @@ public class UIApplicationTests {
 	private TestRestTemplate testRestTemplate;
 
 	@Test
-	public void shouldStartQuoteService() {
-		final ResponseEntity<String> entity = this.testRestTemplate.getForEntity("http://localhost:" + this.port + "/",
-				String.class);
+	public void shouldStartZuulService() {
+		final ResponseEntity<String> entity = this.testRestTemplate
+				.getForEntity("http://localhost:" + this.port + "/health", String.class);
 
 		then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}

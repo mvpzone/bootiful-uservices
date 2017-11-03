@@ -1,171 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mvptime.demo.bootiful</groupId>
-    <artifactId>uservices</artifactId>
-    <version>1.0.0</version>
-    <packaging>pom</packaging>
-    <name>Bootiful MicroServices</name>
+	<groupId>org.mvptime.demo.bootiful</groupId>
+	<artifactId>uservices</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>Bootiful MicroServices</name>
 
-    <description>SpringBoot microservices</description>
-    <url>http://www.mvptime.org</url>
-    <developers>
-      <developer>
-      <id>manoharanv</id>
-      <name>Vinesh Prasanna M</name>
-      <email>vinesh@mvpzone.net</email>
-      <organization />
-      <roles>
-	<role>Developer</role>
-      </roles>
-    </developer>
-  </developers>
-  <organization>
-    <name>Pivotal</name>
-    <url>http://www.pivotal.io/</url>
-  </organization>
-  <scm>
-    <connection>scm:git:git@github.com:mvpzone/bootiful-uservices</connection>
-    <developerConnection>scm:git:git@github.com:mvpzone/bootiful-uservices</developerConnection>
-  </scm>
+	<description>SpringBoot microservices</description>
+	<url>http://www.mvptime.org</url>
+	<developers>
+		<developer>
+			<id>manoharanv</id>
+			<name>Vinesh Prasanna M</name>
+			<email>vinesh@mvpzone.net</email>
+			<organization />
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<organization>
+		<name>Pivotal</name>
+		<url>http://www.pivotal.io/</url>
+	</organization>
+	<scm>
+		<connection>scm:git:git@github.com:mvpzone/bootiful-uservices</connection>
+		<developerConnection>scm:git:git@github.com:mvpzone/bootiful-uservices</developerConnection>
+	</scm>
 
-    <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      
-      <java.version>1.8</java.version>
-      <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
-      <spring.cloud.version>Dalston.SR4</spring.cloud.version>
-      <spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
-      <vaadin.boot.version>2.0.1</vaadin.boot.version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
-      <git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
-      <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
-      <maven.surefire.version>2.18.1</maven.surefire.version>
-    </properties>
+		<java.version>1.8</java.version>
+		<spring.boot.version>1.5.7.RELEASE</spring.boot.version>
+		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
+		<spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
+		<vaadin.boot.version>2.0.1</vaadin.boot.version>
 
-    <modules>
-    	<module>greeting-service</module>
-        <module>config-service</module>
-        <module>config-client</module>
+		<git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
+		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+		<maven.surefire.version>2.18.1</maven.surefire.version>
+	</properties>
+
+	<modules>
+		<module>greeting-service</module>
+		<module>config-service</module>
+		<module>config-client</module>
 		<module>registry-service</module>
 		<module>registry-client</module>
 		<module>bootiful-quotes</module>
 		<module>hystrix-service</module>
 		<module>bootiful-cities</module>
 		<module>bootiful-circuitbreaker</module>
-    </modules>
+		<module>zuul-service</module>
+	</modules>
 
-     <build>
-       <defaultGoal>clean package</defaultGoal>
-       <pluginManagement>
-	  	<plugins>
-	   	<plugin>
-	     <groupId>org.springframework.boot</groupId>
-	     <artifactId>spring-boot-maven-plugin</artifactId>
-	     <version>${spring.boot.version}</version>
-	     <configuration>
-	       <layout>ZIP</layout>
-	     </configuration>
-	     <executions>
-	       <execution>
-		 <goals>
-		   <goal>repackage</goal>
-		 </goals>
-	       </execution>
-	     </executions>
-     	</plugin>
-     	<plugin>
-            <groupId>pl.project13.maven</groupId>
-            <artifactId>git-commit-id-plugin</artifactId>
-	    <version>${git.commitid.plugin.version}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>revision</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                <verbose>true</verbose>
-    			<skipPoms>false</skipPoms>
-    			<runOnlyOnce>true</runOnlyOnce>
-    			<generateGitPropertiesFile>true</generateGitPropertiesFile>
-            </configuration>
-        </plugin>
-	<plugin>
-	  <artifactId>maven-jar-plugin</artifactId>
-	  <version>${maven.jar.plugin.version}</version>
-	</plugin>
-	<plugin>
-	  <artifactId>maven-surefire-plugin</artifactId>
-	  <version>${maven.surefire.version}</version>
-	</plugin>
-        <plugin>
-    		<groupId>org.apache.maven.plugins</groupId>
-   	 		<artifactId>maven-resources-plugin</artifactId>
-    		<configuration>
-        		<delimiters>
-            		<delimiter>@</delimiter>
-        		</delimiters>
-        	<useDefaultDelimiters>false</useDefaultDelimiters>
-    		</configuration>
-		</plugin>
-	  	</plugins>
-  		</pluginManagement>
-  		<plugins>
-  			<plugin>
+	<build>
+		<defaultGoal>clean package</defaultGoal>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+					<configuration>
+						<layout>ZIP</layout>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>pl.project13.maven</groupId>
+					<artifactId>git-commit-id-plugin</artifactId>
+					<version>${git.commitid.plugin.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>revision</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+						<verbose>true</verbose>
+						<skipPoms>false</skipPoms>
+						<runOnlyOnce>true</runOnlyOnce>
+						<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven.jar.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.version}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<logging.level.com.netflix.eureka>OFF</logging.level.com.netflix.eureka>
+							<logging.level.com.netflix.discovery>OFF</logging.level.com.netflix.discovery>
+						</systemPropertyVariables>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<delimiters>
+							<delimiter>@</delimiter>
+						</delimiters>
+						<useDefaultDelimiters>false</useDefaultDelimiters>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
-  		</plugins>
-  		  		
-  		<resources>
+		</plugins>
+
+		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
 
-     </build>
+	</build>
 
-    <!-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html -->
-    <!-- Import dependency management from Spring Boot -->
-    <dependencyManagement>
-      <dependencies>
-	<dependency>
-            <groupId>io.pivotal.spring.cloud</groupId>
-            <artifactId>spring-cloud-services-dependencies</artifactId>
-            <version>${spring.cloudservices.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-	<dependency>
-	  <groupId>org.springframework.cloud</groupId>
-	  <artifactId>spring-cloud-dependencies</artifactId>
-	  <version>${spring.cloud.version}</version>
-	  <type>pom</type>
-	  <scope>import</scope>
-	</dependency>
-	<dependency>
-	  <groupId>org.springframework.boot</groupId>
-	  <artifactId>spring-boot-dependencies</artifactId>
-	  <version>${spring.boot.version}</version>
-	  <type>pom</type>
-	  <scope>import</scope>
-	</dependency>
-	<dependency>
-	  <groupId>com.vaadin</groupId>
-	  <artifactId>vaadin-spring-boot-starter</artifactId>
-	  <version>${vaadin.boot.version}</version>
-	</dependency>
-      </dependencies>
-      </dependencyManagement>
+	<!-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html -->
+	<!-- Import dependency management from Spring Boot -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.pivotal.spring.cloud</groupId>
+				<artifactId>spring-cloud-services-dependencies</artifactId>
+				<version>${spring.cloudservices.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-spring-boot-starter</artifactId>
+				<version>${vaadin.boot.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
 

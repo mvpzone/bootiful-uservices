@@ -76,21 +76,11 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
-					</execution>
-					<execution>
-						<id>default-jar</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<!-- Need this to ensure application.yml is excluded -->
+							<classifier>lib</classifier>
 							<forceCreation>true</forceCreation>
-							<excludes>
-								<exclude>application.yml</exclude>
-							</excludes>
+							<includes>
+								<include>**/domain/**</include>
+							</includes>
 						</configuration>
 					</execution>
 				</executions>

@@ -9,4 +9,4 @@ include 'bootiful-quotes'
 include 'hystrix-service'
 include 'bootiful-cities'
 include 'bootiful-circuitbreaker'
-
+include 'zuul-service'

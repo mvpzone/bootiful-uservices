@@ -7,6 +7,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 class DataInitializer implements ApplicationRunner {
 
@@ -37,6 +40,8 @@ class DataInitializer implements ApplicationRunner {
 						+ "to write double the code than in other langs? #newFavLib")
 				.forEach(quote -> quoteRepository.save(new Quote(quote)));
 
-		quoteRepository.findAll().forEach(System.out::println);
+		quoteRepository.findAll().forEach(quote -> {
+			log.info("Quote [{}]: {}", quote.getId(), quote.getQuote());
+		});
 	}
 }
