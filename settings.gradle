@@ -1,6 +1,6 @@
 rootProject.name = 'bootiful-uservices'
 
-include 'greeting-service'
+include 'bootiful-greeting'
 include 'config-service'
 include 'bootiful-config'
 include 'registry-service'

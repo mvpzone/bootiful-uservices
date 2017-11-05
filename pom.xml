@@ -49,7 +49,7 @@
 	</properties>
 
 	<modules>
-		<module>greeting-service</module>
+		<module>bootiful-greeting</module>
 		<module>config-service</module>
 		<module>bootiful-config</module>
 		<module>registry-service</module>
