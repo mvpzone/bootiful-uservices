@@ -4,12 +4,13 @@ applications:
   memory: 1024M
   random-route: true
   instances: 1
-  path: ./build/libs/bootiful-cities-1.0.0-SNAPSHOT-exec.jar
-  buildpack: java_buildpack
+  path: ./target/bootiful-cities-1.0.0-SNAPSHOT-exec.jar
+  buildpack: java_buildpack_offline
   timeout: 180 # to give time for the data to import
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
   services:
   - config-server
-  - service-registry
+  - registry-server
 
