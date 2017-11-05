@@ -26,11 +26,12 @@ class CityClientFallbackFactory implements FallbackFactory<CityClient> {
 
 	@Override
 	public CityClient create(final Throwable t) {
+		final Resources<City> EMPTY_CITIES = new Resources<City>(Collections.emptyList());
 		return new CityClient() {
 			@Override
 			public Resources<City> getCities() {
 				log.info("Fallback triggered by {} due to {}", t.getClass().getName(), t.getMessage());
-				return new Resources<City>(Collections.emptyList());
+				return EMPTY_CITIES;
 			}
 		};
 	}

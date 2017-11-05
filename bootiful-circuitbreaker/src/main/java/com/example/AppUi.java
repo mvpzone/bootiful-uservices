@@ -12,8 +12,11 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.UI;
 
+import lombok.extern.slf4j.Slf4j;
+
 @SpringUI
 @Theme("valo")
+@Slf4j
 public class AppUi extends UI {
 	private static final long serialVersionUID = 1152761617155039730L;
 
@@ -33,6 +36,9 @@ public class AppUi extends UI {
 		grid.setHeight(100, Unit.PERCENTAGE);
 		final Collection<City> collection = new ArrayList<>();
 		client.getCities().forEach(collection::add);
+
+		log.info("Collected cities : {}", collection.size());
+
 		grid.setItems(collection);
 	}
 }

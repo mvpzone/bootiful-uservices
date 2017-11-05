@@ -42,6 +42,7 @@
 		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
 		<spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
 		<vaadin.boot.version>2.0.1</vaadin.boot.version>
+		<vaadin.version>8.1.6</vaadin.version>
 
 		<git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
 		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
@@ -171,6 +172,21 @@
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-spring-boot-starter</artifactId>
 				<version>${vaadin.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-themes</artifactId>
+				<version>${vaadin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-client-compiled</artifactId>
+				<version>${vaadin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-server</artifactId>
+				<version>${vaadin.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
