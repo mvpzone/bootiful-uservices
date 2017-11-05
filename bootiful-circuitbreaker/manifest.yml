@@ -4,11 +4,13 @@ applications:
   memory: 1024M
   random-route: true
   instances: 1
-  path: ./build/libs/bootiful-circuitbreaker-1.0-SNAPSHOT-exec.jar
-  buildpack: java_buildpack
+  path: ./target/bootiful-circuitbreaker-1.0.0-SNAPSHOT.jar
+  buildpack: java_buildpack_offline
   timeout: 180 # to give time for the data to import
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
   services:
-  - service-registry
+  - config-server
+  - registry-server
   - circuit-breaker
