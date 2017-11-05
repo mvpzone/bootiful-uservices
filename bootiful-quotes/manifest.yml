@@ -2,6 +2,7 @@
 applications:
 - name: bootiful-quotes
   memory: 768M
+  disk_quota: 512M
   instances: 1
   random-route: true
   #domains: 
