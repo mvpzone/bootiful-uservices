@@ -2,6 +2,7 @@
 applications:
 - name: bootiful-ribbon
   memory: 768M
+  disk_quota: 512M
   random-route: true
   instances: 1
   path: ./target/bootiful-ribbon-1.0.0-SNAPSHOT.jar
