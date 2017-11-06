@@ -13,7 +13,7 @@ applications:
   path: ./target/bootiful-quotes-1.0.0-SNAPSHOT.jar
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
-    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.cumulus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
   services:
   - registry-server
   - config-server

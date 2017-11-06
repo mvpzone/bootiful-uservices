@@ -10,7 +10,7 @@ applications:
   timeout: 180 # to give time for the data to import
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
-    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.cumulus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
   services:
   - config-server
   - registry-server
