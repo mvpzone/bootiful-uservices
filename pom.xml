@@ -61,6 +61,7 @@
 		<module>bootiful-circuitbreaker</module>
 		<module>zuul-service</module>
 		<module>bootiful-ribbon</module>
+		<module>zipkin-service</module>
 	</modules>
 
 	<build>
