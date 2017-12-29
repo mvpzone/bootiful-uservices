@@ -82,6 +82,8 @@ local.properties
 .classpath
 .settings/
 .loadpath
+.sts4-cache/
+.vscode/
 
 #Idea workspace setting files.
 *.iws

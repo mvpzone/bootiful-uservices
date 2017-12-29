@@ -63,6 +63,7 @@
 		<module>bootiful-ribbon</module>
 		<module>zipkin-service</module>
 		<module>bootiful-fortunes</module>
+		<module>bootiful-fortuneui</module>
 	</modules>
 
 	<build>
