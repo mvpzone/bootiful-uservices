@@ -38,15 +38,19 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 
 		<java.version>1.8</java.version>
-		<spring.boot.version>1.5.7.RELEASE</spring.boot.version>
-		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
-		<spring.cloudservices.version>1.5.0.RELEASE</spring.cloudservices.version>
-		<vaadin.boot.version>2.0.1</vaadin.boot.version>
-		<vaadin.version>8.1.6</vaadin.version>
+		<spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+		<spring.cloud.version>Dalston.SR5</spring.cloud.version>
+		<spring.cloudservices.version>1.6.1.RELEASE</spring.cloudservices.version>
+		
+		<vaadin.boot.version>3.0.0</vaadin.boot.version>
+		<vaadin.version>8.3.0</vaadin.version>
+		
+		<spring.cloud.gcp.starter.version>1.0.0.M2</spring.cloud.gcp.starter.version>
+		<google.cloud.version>0.38.0-alpha</google.cloud.version>
 
-		<git.commitid.plugin.version>2.2.3</git.commitid.plugin.version>
+		<git.commitid.plugin.version>2.2.4</git.commitid.plugin.version>
 		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
-		<maven.surefire.version>2.18.1</maven.surefire.version>
+		<maven.surefire.version>2.20.1</maven.surefire.version>
 	</properties>
 
 	<modules>
@@ -64,6 +68,7 @@
 		<module>zipkin-service</module>
 		<module>bootiful-fortunes</module>
 		<module>bootiful-fortuneui</module>
+		<module>bootiful-vision</module>
 	</modules>
 
 	<build>
@@ -145,6 +150,17 @@
 		</resources>
 
 	</build>
+	
+	<repositories>
+    	<repository>
+        	<id>spring-milestones</id>
+        	<name>Spring Milestones</name>
+        	<url>https://repo.spring.io/libs-milestone</url>
+        	<snapshots>
+            	<enabled>false</enabled>
+        	</snapshots>
+    	</repository>
+	</repositories>
 
 	<!-- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-build-systems.html -->
 	<!-- Import dependency management from Spring Boot -->
@@ -172,6 +188,14 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>com.google.cloud</groupId>
+				<artifactId>google-cloud-bom</artifactId>
+				<version>${google.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+			<dependency>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-spring-boot-starter</artifactId>
 				<version>${vaadin.boot.version}</version>
@@ -191,8 +215,18 @@
 				<artifactId>vaadin-server</artifactId>
 				<version>${vaadin.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter -->
+			<dependency>
+		    	<groupId>org.springframework.cloud</groupId>
+			    <artifactId>spring-cloud-gcp-starter</artifactId>
+			    <version>${spring.cloud.gcp.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-gcp-starter-storage</artifactId>
+				<version>${spring.cloud.gcp.starter.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 </project>
-

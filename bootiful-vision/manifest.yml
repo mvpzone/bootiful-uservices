@@ -1,0 +1,14 @@
+---
+applications:
+- name: bootiful-vision
+  memory: 768M
+  disk_quota: 512M
+  instances: 1
+  random-route: true
+  #buildpack: java_buildpack
+  #timeout: 180 # to give time for the data to import
+  path: ./target/bootiful-vision-1.0.0-SNAPSHOT.jar
+  env:
+    JAVA_OPTS: -Djava.security.egd=file:///dev/./urandom
+    TRUST_CERTS: api.sys.cf.cirrus.labs.mvptime.org,api.sys.cf.cumulus.labs.mvptime.org,api.sys.cf.stratus.labs.mvptime.org
+
