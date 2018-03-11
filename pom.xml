@@ -44,6 +44,7 @@
 		
 		<vaadin.boot.version>3.0.0</vaadin.boot.version>
 		<vaadin.version>8.3.0</vaadin.version>
+		<jersey.version>1.19.4</jersey.version>
 		
 		<spring.cloud.gcp.starter.version>1.0.0.M2</spring.cloud.gcp.starter.version>
 		<google.cloud.version>0.38.0-alpha</google.cloud.version>
@@ -225,6 +226,17 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-gcp-starter-storage</artifactId>
 				<version>${spring.cloud.gcp.starter.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-core -->
+			<dependency>
+		    	<groupId>com.sun.jersey</groupId>
+		    	<artifactId>jersey-core</artifactId>
+		    	<version>${jersey.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey.contribs</groupId>
+				<artifactId>jersey-apache-client4</artifactId>
+	    		<version>${jersey.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
