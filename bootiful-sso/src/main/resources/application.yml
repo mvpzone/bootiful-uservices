@@ -1,0 +1,42 @@
+server:
+  port: ${PORT:8080}
+
+#debug: true
+spring:
+  application:
+    name: bootiful-sso
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    # excluded-view-names:
+    # template-resolver-order:
+    # view-names:
+
+security:
+  basic:
+    enabled: false
+
+management:
+  context-path: /admin
+  security:
+    enabled: false
+  info: 
+    git: 
+      mode: full
+  cloudfoundry: 
+    enabled: true
+    skip-ssl-validation: true
+
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO

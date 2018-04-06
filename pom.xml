@@ -38,9 +38,18 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 
 		<java.version>1.8</java.version>
-		<spring.boot.version>1.5.10.RELEASE</spring.boot.version>
-		<spring.cloud.version>Dalston.SR5</spring.cloud.version>
-		<spring.cloudservices.version>1.6.1.RELEASE</spring.cloudservices.version>
+		<spring.boot.version>1.5.11.RELEASE</spring.boot.version>
+		<spring.cloud.version>Edgware.SR3</spring.cloud.version>
+		<spring.cloudservices.version>1.6.3.RELEASE</spring.cloudservices.version>
+		<spring.cloudsso.version>2.1.2.RELEASE</spring.cloudsso.version>
+		<spring.security.oauth2.version>2.3.0.RELEASE</spring.security.oauth2.version>
+		
+		<!-- upgrade to thymeleaf version 3 -->
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+        <thymeleaf-extras-springsecurity4.version>3.0.2.RELEASE</thymeleaf-extras-springsecurity4.version>
+        <bootstrap.version>4.0.0-2</bootstrap.version>
+        <jquery.version>3.3.1-1</jquery.version>
 		
 		<vaadin.boot.version>3.0.0</vaadin.boot.version>
 		<vaadin.version>8.3.0</vaadin.version>
@@ -70,6 +79,7 @@
 		<module>bootiful-fortunes</module>
 		<module>bootiful-fortuneui</module>
 		<module>bootiful-vision</module>
+		<module>bootiful-sso</module>
 	</modules>
 
 	<build>
@@ -174,6 +184,19 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.pivotal.spring.cloud/spring-cloud-sso-connector -->
+			<dependency>
+		    	<groupId>io.pivotal.spring.cloud</groupId>
+			    <artifactId>spring-cloud-sso-connector</artifactId>
+			    <version>${spring.cloudsso.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+			<dependency>
+			    <groupId>org.springframework.security.oauth</groupId>
+			    <artifactId>spring-security-oauth2</artifactId>
+			    <version>${spring.security.oauth2.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -196,6 +219,43 @@
 				<scope>import</scope>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+			<dependency>
+		    	<groupId>org.webjars</groupId>
+			    <artifactId>bootstrap</artifactId>
+			    <version>${bootstrap.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+			<dependency>
+			    <groupId>org.webjars</groupId>
+			    <artifactId>jquery</artifactId>
+			    <version>${jquery.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+			<dependency>
+			    <groupId>org.thymeleaf</groupId>
+			    <artifactId>thymeleaf-spring4</artifactId>
+			    <version>${thymeleaf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
+			<dependency>
+		    	<groupId>org.thymeleaf</groupId>
+			    <artifactId>thymeleaf</artifactId>
+			    <version>${thymeleaf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect -->
+			<dependency>
+			    <groupId>nz.net.ultraq.thymeleaf</groupId>
+			    <artifactId>thymeleaf-layout-dialect</artifactId>
+			    <version>${thymeleaf-layout-dialect.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
+			<dependency>
+			    <groupId>org.thymeleaf.extras</groupId>
+			    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+			    <version>${thymeleaf-extras-springsecurity4.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-spring-boot-starter</artifactId>
@@ -216,6 +276,7 @@
 				<artifactId>vaadin-server</artifactId>
 				<version>${vaadin.version}</version>
 			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter -->
 			<dependency>
 		    	<groupId>org.springframework.cloud</groupId>
