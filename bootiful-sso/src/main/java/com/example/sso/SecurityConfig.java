@@ -49,7 +49,7 @@ public class SecurityConfig {
 			http.authorizeRequests()
 					.antMatchers("/", "/admin/**", "/error", "/403", "/js/**", "/css/**", "/img/**",
 							"/webjars/**").permitAll()
-					.antMatchers("/user/**").authenticated()
+					.antMatchers("/user/**").hasRole("todo.read")
 					.anyRequest().authenticated().and()
 					.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 		}
