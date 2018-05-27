@@ -80,6 +80,7 @@
 		<module>bootiful-fortuneui</module>
 		<module>bootiful-vision</module>
 		<module>bootiful-sso</module>
+		<module>bootiful-volume</module>
 	</modules>
 
 	<build>
