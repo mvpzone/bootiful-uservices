@@ -1,0 +1,6 @@
+applications:
+- name: bootiful-volume
+  instances: 1
+  memory: 768M
+  buildpack: java_buildpack_offline
+  path: target/bootiful-volume-1.0.0-SNAPSHOT.jar
