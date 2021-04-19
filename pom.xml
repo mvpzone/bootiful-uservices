@@ -52,7 +52,7 @@
         <jquery.version>3.3.1-1</jquery.version>
 		
 		<vaadin.boot.version>3.0.0</vaadin.boot.version>
-		<vaadin.version>8.3.0</vaadin.version>
+		<vaadin.version>8.12.4</vaadin.version>
 		<jersey.version>1.19.4</jersey.version>
 		
 		<spring.cloud.gcp.starter.version>1.0.0.M2</spring.cloud.gcp.starter.version>
